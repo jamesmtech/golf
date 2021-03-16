@@ -1,0 +1,31 @@
+body {
+  padding: 0;
+}
+
+
+.block {
+  display: flex;
+  border: 2px solid black;
+  width: 27px;
+}
+
+.container1,
+.container2 {
+  display: flex;
+}
+
+.holes {
+  letter-spacing: 12px;
+}
+
+/* .wrap {
+  display: flex;
+} */
+
+.table {
+  font-size: 7px;
+}
+
+.input {
+  font-size: 7px;
+}
