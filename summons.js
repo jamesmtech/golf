@@ -1,3 +1,11 @@
+document.getElementById("course-select").addEventListener('change', (event) => {
+  const courseId = event.target.value;
+getCourseInfo(courseId).then(course => {
+  displayCourse(course)
+})
+})
+
+
 async function getAvailableCourses() {
  return fetch('https://golf-courses-api.herokuapp.com/courses/').then(
    function (response) {
@@ -7,8 +15,8 @@ async function getAvailableCourses() {
  );
 }
 async function getCourseInfo(courseId) {
-  fetch('https://golf-courses-api.herokuapp.com/courses/' +courseId).then(
-   response => displayCourse (response) 
+return fetch('https://golf-courses-api.herokuapp.com/courses/' +courseId).then(
+   response => response.json()
  );
 }
 getAvailableCourses().then(data=>{
@@ -22,8 +30,8 @@ getAvailableCourses().then(data=>{
 
 });
 
-function displayCourse (response) {
-     let course =response.json()
+function displayCourse (course) {
+    
      console.log(course);
      document.getElementById("yardage1").innerHTML=course.courseId;
     //  document.getElementById("yardage1").innerHTML=course.data.holes[0].teeBoxes[0].yards;
