@@ -5,6 +5,7 @@ document.getElementById("course-select").addEventListener("change", (event) => {
   courseInfoPromise = getCourseInfo(courseId);
   courseInfoPromise.then((course) => {
     teeSelect(course);
+    displayCourse(course, course.data.holes[0].teeBoxes[0].teeTypeId);
   });
 });
 
@@ -58,8 +59,79 @@ function displayCourse(course, teeId) {
     document.getElementById(`handicap${hole.hole}`).innerHTML =
       hole.teeBoxes[teeId].hcp;
   });
+  // yrdg
+  document.getElementById(
+    "yardage gTotal"
+  ).innerHTML = course.data.holes.reduce((total, hole) => {
+    return hole.teeBoxes[teeId].yards + total;
+  }, 0);
+  document.getElementById(
+    "yardage outTotal"
+  ).innerHTML = course.data.holes.reduce((total, hole) => {
+    if (hole.hole < 10) {
+      return hole.teeBoxes[teeId].yards + total;
+    } else {
+      return total;
+    }
+  }, 0);
+  document.getElementById(
+    "yardage inTotal"
+  ).innerHTML = course.data.holes.reduce((total, hole) => {
+    if (hole.hole > 9) {
+      return hole.teeBoxes[teeId].yards + total;
+    } else {
+      return total;
+    }
+  }, 0);
+
+  // par
+  document.getElementById("par gTotal").innerHTML = course.data.holes.reduce(
+    (total, hole) => {
+      return hole.teeBoxes[teeId].par + total;
+    },
+    0
+  );
+  document.getElementById("par outTotal").innerHTML = course.data.holes.reduce(
+    (total, hole) => {
+      if (hole.hole < 10) {
+        return hole.teeBoxes[teeId].par + total;
+      } else {
+        return total;
+      }
+    },
+    0
+  );
+  document.getElementById("par inTotal").innerHTML = course.data.holes.reduce(
+    (total, hole) => {
+      if (hole.hole > 9) {
+        return hole.teeBoxes[teeId].par + total;
+      } else {
+        return total;
+      }
+    },
+    0
+  );
+
+  let total = 0;
+  let inTotal = 0;
+  let out = 0;
+  for (let i = 1; i <= 9; i++) {
+    let score = document.getElementById(`p1${i}`).value
+      ? document.getElementById(`p1${i}`).value
+      : 0;
+    total += score;
+    if (i < 10) {
+      out += score;
+    } else {
+      inTotal += score;
+    }
+  }
+  document.getElementById("p1 gTotal").innerHTML = total;
 }
 
+// line 89 properly gets the value of p input console log
+// line 99 check proper spot
+// document.getElementById("p19")
 // let outYards = 0
 // let inYards = 0
 // for ( ) {
