@@ -15,7 +15,9 @@ document.getElementById("tee-select").addEventListener("change", (event) => {
     displayCourse(course, teeId);
   });
 });
-
+for (let j = 1; j <= 18; j++) {
+  document.getElementById(`p1${j}`).addEventListener("change", playerTotal);
+}
 async function getAvailableCourses() {
   return fetch("https://golf-courses-api.herokuapp.com/courses/").then(
     function (response) {
@@ -59,6 +61,7 @@ function displayCourse(course, teeId) {
     document.getElementById(`handicap${hole.hole}`).innerHTML =
       hole.teeBoxes[teeId].hcp;
   });
+
   // yrdg
   document.getElementById(
     "yardage gTotal"
@@ -111,13 +114,15 @@ function displayCourse(course, teeId) {
     },
     0
   );
+}
 
+function playerTotal() {
   let total = 0;
   let inTotal = 0;
   let out = 0;
-  for (let i = 1; i <= 9; i++) {
+  for (let i = 1; i <= 18; i++) {
     let score = document.getElementById(`p1${i}`).value
-      ? document.getElementById(`p1${i}`).value
+      ? parseInt(document.getElementById(`p1${i}`).value)
       : 0;
     total += score;
     if (i < 10) {
@@ -126,7 +131,7 @@ function displayCourse(course, teeId) {
       inTotal += score;
     }
   }
-  document.getElementById("p1 gTotal").innerHTML = total;
+  document.getElementById("p1 gTotal").innerText = total;
 }
 
 // line 89 properly gets the value of p input console log
