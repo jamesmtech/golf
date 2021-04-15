@@ -16,8 +16,51 @@ document.getElementById("tee-select").addEventListener("change", (event) => {
   });
 });
 for (let j = 1; j <= 18; j++) {
-  document.getElementById(`p1${j}`).addEventListener("change", playerTotal);
+  document.getElementById(`p1${j}`).addEventListener("change", playerTotal1);
+  document.getElementById(`p2${j}`).addEventListener("change", playerTotal2);
+  document.getElementById(`p3${j}`).addEventListener("change", playerTotal3);
+  document.getElementById(`p4${j}`).addEventListener("change", playerTotal4);
 }
+
+const name1 = document.getElementById("name1");
+const name2 = document.getElementById("name2");
+const name3 = document.getElementById("name3");
+const name4 = document.getElementById("name4");
+const tion = document.querySelector(".tName1");
+const tion2 = document.querySelector(".tName2");
+const tion3 = document.querySelector(".tName3");
+const tion4 = document.querySelector(".tName4");
+const tion5 = document.querySelector(".tName5");
+const tion6 = document.querySelector(".tName6");
+const tion7 = document.querySelector(".tName7");
+const tion8 = document.querySelector(".tName8");
+const wrap = document.querySelector(".wrapper");
+
+document.getElementById("nameBtn").addEventListener("click", () => {
+  if (
+    name1.value == name2.value ||
+    name1.value == name3.value ||
+    name1.value == name4.value ||
+    name2.value == name3.value ||
+    name2.value == name4.value ||
+    name3.value == name4.value
+  ) {
+    alert("You cannot be two people!");
+    return false;
+  }
+
+  tion.innerText = name1.value;
+  tion2.innerText = name2.value;
+  tion3.innerText = name3.value;
+  tion4.innerText = name4.value;
+  tion5.innerText = name1.value;
+  tion6.innerText = name2.value;
+  tion7.innerText = name3.value;
+  tion8.innerText = name4.value;
+
+  wrap.style.display = "none";
+});
+
 async function getAvailableCourses() {
   return fetch("https://golf-courses-api.herokuapp.com/courses/").then(
     function (response) {
@@ -116,7 +159,7 @@ function displayCourse(course, teeId) {
   );
 }
 
-function playerTotal() {
+function playerTotal1() {
   let total = 0;
   let inTotal = 0;
   let out = 0;
@@ -132,6 +175,68 @@ function playerTotal() {
     }
   }
   document.getElementById("p1 gTotal").innerText = total;
+  document.getElementById("p1 outTotal").innerText = out;
+  document.getElementById("p1 inTotal").innerText = inTotal;
+}
+
+function playerTotal2() {
+  let total = 0;
+  let inTotal = 0;
+  let out = 0;
+  for (let i = 1; i <= 18; i++) {
+    let score = document.getElementById(`p2${i}`).value
+      ? parseInt(document.getElementById(`p2${i}`).value)
+      : 0;
+    total += score;
+    if (i < 10) {
+      out += score;
+    } else {
+      inTotal += score;
+    }
+  }
+  document.getElementById("p2 gTotal").innerText = total;
+  document.getElementById("p2 outTotal").innerText = out;
+  document.getElementById("p2 inTotal").innerText = inTotal;
+}
+
+function playerTotal3() {
+  let total = 0;
+  let inTotal = 0;
+  let out = 0;
+  for (let i = 1; i <= 18; i++) {
+    let score = document.getElementById(`p3${i}`).value
+      ? parseInt(document.getElementById(`p3${i}`).value)
+      : 0;
+    total += score;
+    if (i < 10) {
+      out += score;
+    } else {
+      inTotal += score;
+    }
+  }
+  document.getElementById("p3 gTotal").innerText = total;
+  document.getElementById("p3 outTotal").innerText = out;
+  document.getElementById("p3 inTotal").innerText = inTotal;
+}
+
+function playerTotal4() {
+  let total = 0;
+  let inTotal = 0;
+  let out = 0;
+  for (let i = 1; i <= 18; i++) {
+    let score = document.getElementById(`p4${i}`).value
+      ? parseInt(document.getElementById(`p4${i}`).value)
+      : 0;
+    total += score;
+    if (i < 10) {
+      out += score;
+    } else {
+      inTotal += score;
+    }
+  }
+  document.getElementById("p4 gTotal").innerText = total;
+  document.getElementById("p4 outTotal").innerText = out;
+  document.getElementById("p4 inTotal").innerText = inTotal;
 }
 
 // line 89 properly gets the value of p input console log

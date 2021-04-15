@@ -19,9 +19,22 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link href="toastr.css" rel="stylesheet" />
+<script src="toastr.js"></script>
+
 </head>
 
 <body>
+    <div class="wrapper">
+    <h3>Enter Your Names:</h3>
+    <input id="name1" placeholder="Name One" type="text"></input>
+    <input id="name2" placeholder="Name Two" type="text"></input>
+    <input id="name3" placeholder="Name Three" type="text"></input>
+    <input id="name4" placeholder="Name Four" type="text"></input>
+    <button id= "nameBtn">All Done!</button>
+
+    </div>
 
     <div class="form-group">
         <label for="course-select">Select Course</label>
@@ -98,7 +111,7 @@
                     <td id="handicap outTotal"></td>
                 </tr>
                 <tr>
-                    <th scope="row" class="name1">Player1</th>
+                    <th scope="row" class="tName1">Player1</th>
                     <td ><input id="p11" type="text" size="2"></td>
                     <td ><input id="p12" type="text" size="2"></td>
                     <td ><input id="p13" type="text" size="2"></td>
@@ -111,40 +124,40 @@
                     <td id="p1 outTotal"></td>
                     
                 </tr><tr>
-                    <th scope="row" class="name2">Player2</th>
-                    <td id="p21"><input type="text" size="2"></td>
-                    <td id="p22"><input type="text" size="2"></td>
-                    <td id="p23"><input type="text" size="2"></td>
-                    <td id="p24"><input type="text" size="2"></td>
-                    <td id="p25"><input type="text" size="2"></td>
-                    <td id="p26"><input type="text" size="2"></td>
-                    <td id="p27"><input type="text" size="2"></td>
-                    <td id="p28"><input type="text" size="2"></td>
-                    <td id="p29"><input type="text" size="2"></td>
+                    <th scope="row" class="tName2">Player2</th>
+                    <td ><input id="p21" type="text" size="2"></td>
+                    <td ><input id="p22" type="text" size="2"></td>
+                    <td ><input id="p23" type="text" size="2"></td>
+                    <td ><input id="p24" type="text" size="2"></td>
+                    <td ><input id="p25" type="text" size="2"></td>
+                    <td ><input id="p26" type="text" size="2"></td>
+                    <td ><input id="p27" type="text" size="2"></td>
+                    <td ><input id="p28" type="text" size="2"></td>
+                    <td ><input id="p29" type="text" size="2"></td>
                     <td id="p2 outTotal"></td>
                 </tr><tr>
-                    <th scope="row" class="name3">Player3</th>
-                    <td id= "p31"><input type="text" size="2"></td>
-                    <td id= "p32"><input type="text" size="2"></td>
-                    <td id= "p33"><input type="text" size="2"></td>
-                    <td id= "p34"><input type="text" size="2"></td>
-                    <td id= "p35"><input type="text" size="2"></td>
-                    <td id= "p36"><input type="text" size="2"></td>
-                    <td id= "p37"><input type="text" size="2"></td>
-                    <td id= "p38"><input type="text" size="2"></td>
-                    <td id= "p39"><input type="text" size="2"></td>
+                    <th scope="row" class="tName3">Player3</th>
+                    <td ><input id= "p31" type="text" size="2"></td>
+                    <td ><input id= "p32" type="text" size="2"></td>
+                    <td ><input id= "p33" type="text" size="2"></td>
+                    <td ><input id= "p34" type="text" size="2"></td>
+                    <td ><input id= "p35" type="text" size="2"></td>
+                    <td ><input id= "p36" type="text" size="2"></td>
+                    <td ><input id= "p37" type="text" size="2"></td>
+                    <td ><input id= "p38" type="text" size="2"></td>
+                    <td ><input id= "p39" type="text" size="2"></td>
                     <td id= "p3 OutTotal"></td>
                 </tr><tr>
-                    <th scope="row" class="name4">Player4</th>
-                    <td id="p41"><input type="text" size="2"></td>
-                    <td id="p42"><input type="text" size="2"></td>
-                    <td id="p43"><input type="text" size="2"></td>
-                    <td id="p44"><input type="text" size="2"></td>
-                    <td id="p45"><input type="text" size="2"></td>
-                    <td id="p46"><input type="text" size="2"></td>
-                    <td id="p47"><input type="text" size="2"></td>
-                    <td id="p48"><input type="text" size="2"></td>
-                    <td id="p49"><input type="text" size="2"></td>
+                    <th scope="row" class="tName4">Player4</th>
+                    <td ><input id="p41" type="text" size="2"></td>
+                    <td ><input id="p42" type="text" size="2"></td>
+                    <td ><input id="p43" type="text" size="2"></td>
+                    <td ><input id="p44" type="text" size="2"></td>
+                    <td ><input id="p45" type="text" size="2"></td>
+                    <td ><input id="p46" type="text" size="2"></td>
+                    <td ><input id="p47" type="text" size="2"></td>
+                    <td ><input id="p48" type="text" size="2"></td>
+                    <td ><input id="p49" type="text" size="2"></td>
                     <td id="p4 outTotal"></td>
                 </tr>
             </tbody>
@@ -222,60 +235,64 @@
                     <td id="handicap gTotal"></td>
                 </tr>
                 <tr>
-                    <th scope="row" class="2name1">Player1</th>
-                    <td id="p110"><input type = "text" size="2"></td>
-                    <td id="p111"><input type="text" size="2"></td>
-                    <td id="p112"><input type="text" size="2"></td>
-                    <td id="p113"><input type="text" size="2"></td>
-                    <td id="p114"><input type="text" size="2"></td>
-                    <td id="p115"><input type="text" size="2"></td>
-                    <td id="p116"><input type="text" size="2"></td>
-                    <td id="p117"><input type="text" size="2"></td>
-                    <td id="p118"><input type="text" size="2"></td>
+                    <th scope="row" class="tName5">Player1</th>
+                    <td ><input id="p110" type ="text" size="2"></td>
+                    <td ><input id="p111" type="text" size="2"></td>
+                    <td ><input id="p112" type="text" size="2"></td>
+                    <td ><input id="p113" type="text" size="2"></td>
+                    <td ><input id="p114" type="text" size="2"></td>
+                    <td ><input id="p115" type="text" size="2"></td>
+                    <td ><input id="p116" type="text" size="2"></td>
+                    <td ><input id="p117" type="text" size="2"></td>
+                    <td ><input id="p118" type="text" size="2"></td>
                     <td id="p1 inTotal"></td>
                     <td id="p1 gTotal"></td>
+                    <td id="p1 fTotal"></td>
                 </tr>
                 <tr>
-                    <th scope="row" class="2name2">Player2</th>
-                    <td id="p21"><input type="text" size="2"></td>
-                    <td id="p22"><input type="text" size="2"></td>
-                    <td id="p23"><input type="text" size="2"></td>
-                    <td id="p24"><input type="text" size="2"></td>
-                    <td id="p25"><input type="text" size="2"></td>
-                    <td id="p26"><input type="text" size="2"></td>
-                    <td id="p27"><input type="text" size="2"></td>
-                    <td id="p28"><input type="text" size="2"></td>
-                    <td id="p29"><input type="text" size="2"></td>
+                    <th scope="row" class="tName6">Player2</th>
+                    <td ><input id="p210" type="text" size="2"></td>
+                    <td ><input id="p211" type="text" size="2"></td>
+                    <td ><input id="p212" type="text" size="2"></td>
+                    <td ><input id="p213" type="text" size="2"></td>
+                    <td ><input id="p214" type="text" size="2"></td>
+                    <td ><input id="p215" type="text" size="2"></td>
+                    <td ><input id="p216" type="text" size="2"></td>
+                    <td ><input id="p217" type="text" size="2"></td>
+                    <td ><input id="p218" type="text" size="2"></td>
                     <td id="p2 inTotal"></td>
                     <td id="p2 gTotal"></td>
+                    <td id="p2 fTotal"></td>
                 </tr>
                 <tr>
-                    <th scope="row" class="2name3">Player3</th>
-                    <td id="p31"><input type="text" size="2"></td>
-                    <td id="p32"><input type="text" size="2"></td>
-                    <td id="p33"><input type="text" size="2"></td>
-                    <td id="p34"><input type="text" size="2"></td>
-                    <td id="p35"><input type="text" size="2"></td>
-                    <td id="p36"><input type="text" size="2"></td>
-                    <td id="p37"><input type="text" size="2"></td>
-                    <td id="p38"><input type="text" size="2"></td>
-                    <td id="p39"><input type="text" size="2"></td>
+                    <th scope="row" class="tName7">Player3</th>
+                    <td><input id="p310" type="text" size="2"></td>
+                    <td><input id="p311" type="text" size="2"></td>
+                    <td><input id="p312" type="text" size="2"></td>
+                    <td><input id="p313" type="text" size="2"></td>
+                    <td><input id="p314" type="text" size="2"></td>
+                    <td><input id="p315" type="text" size="2"></td>
+                    <td><input id="p316" type="text" size="2"></td>
+                    <td><input id="p317" type="text" size="2"></td>
+                    <td><input id="p318" type="text" size="2"></td>
                     <td id="p3 inTotal"></td>
                     <td id="p3 gTotal"></td>
+                    <td id="p3 fTotal"></td>
                 </tr>
                 <tr>
-                    <th scope="row" class="2name4">Player4</th>
-                    <td id="p41"><input type="text" size="2"></td>
-                    <td id="p42"><input type="text" size="2"></td>
-                    <td id="p43"><input type="text" size="2"></td>
-                    <td id="p44"><input type="text" size="2"></td>
-                    <td id="p45"><input type="text" size="2"></td>
-                    <td id="p46"><input type="text" size="2"></td>
-                    <td id="p47"><input type="text" size="2"></td>
-                    <td id="p48"><input type="text" size="2"></td>
-                    <td id="p49"><input type="text" size="2"></td>
+                    <th scope="row" class="tName8">Player4</th>
+                    <td><input id="p410" type="text" size="2"></td>
+                    <td><input id="p411" type="text" size="2"></td>
+                    <td><input id="p412" type="text" size="2"></td>
+                    <td><input id="p413" type="text" size="2"></td>
+                    <td><input id="p414" type="text" size="2"></td>
+                    <td><input id="p415" type="text" size="2"></td>
+                    <td><input id="p416" type="text" size="2"></td>
+                    <td><input id="p417" type="text" size="2"></td>
+                    <td><input id="p418" type="text" size="2"></td>
                     <td id="p4 inTotal"></td>
                     <td id="p4 gTotal"></td>
+                    <td id="p4 fTotal"></td>
                 </tr>
             </tbody>
         </table>
